@@ -4,6 +4,8 @@ import type { ChatMessage, Model } from "~/types"
 import { splitKeys, randomKey, fetchWithTimeout } from "~/utils"
 import { defaultEnv } from "~/env"
 import type { APIEvent } from "solid-start/api"
+import { hongniangMessage } from "~/store"
+
 
 export const config = {
   runtime: "edge",
@@ -92,7 +94,7 @@ export async function POST({ request }: APIEvent) {
 
     const encoder = new TextEncoder()
     const decoder = new TextDecoder()
-
+    messages.unshift(hongniangMessage)
     const rawRes = await fetchWithTimeout(
       `https://${baseURL}/v1/chat/completions`,
       {

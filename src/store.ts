@@ -59,6 +59,12 @@ export const defaultMessage: ChatMessage = {
   type: "default"
 }
 
+export const hongniangMessage: ChatMessage = {
+  role: "system",
+  content: defaultEnv.hongniang_MESSAGE,
+  type: "default"
+}
+
 function Store() {
   const [store, setStore] = createStore({
     sessionId: "index",
