@@ -105,7 +105,7 @@ export async function POST({ request }: APIEvent) {
         timeout,
         method: "POST",
         body: JSON.stringify({
-          model: model,
+          model: "gpt-3.5-turbo-0613",
           messages: messages.map(k => ({ role: k.role, content: k.content })),
           temperature,
           stream: true
